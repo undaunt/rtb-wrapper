@@ -20,7 +20,7 @@ fn_create_backup_cmd () {
     if [ "${FLAGS}" = "" ]; then
         cmd="rsync_tmbackup.sh '${SOURCE}' '${TARGET}'"
     else
-        cmd="rsync_tmbackup.sh --rsync-set-flags '\"${FLAGS}\"' '${SOURCE}' '${TARGET}'"
+        cmd="rsync_tmbackup.sh --rsync-set-flags ${FLAGS} '${SOURCE}' '${TARGET}'"
     fi
 
     exclude_file_check=${EXCLUDE_FILE:-}

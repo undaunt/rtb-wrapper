@@ -47,12 +47,12 @@ And here is how to __restore__ from the `latest` backup:
     SOURCE="${HOME}/Documents"
     # the target folder
     TARGET="/media/user1/backup-disk/Documents"
+    # rsync flags if overriding default
+    FLAGS="-D --numeric-ids --links --hard-links --one-file-system --itemize-changes --times --recursive --perms --owner --no-group --stats --human-readable"
     # optional: the exclude file for rsync
     EXCLUDE_FILE="${HOME}/backup-documents-excludes.lst"
     # optional: wipe the source folder before restoring files? (true/false; default: false)
     WIPE_SOURCE_ON_RESTORE=true
-    # optional: rsync flags if overriding default
-    FLAGS="-D --numeric-ids --links --hard-links --one-file-system --itemize-changes --times --recursive --perms --owner --no-group --stats --human-readable"
 
 ### Exclude file
 

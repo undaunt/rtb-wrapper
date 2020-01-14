@@ -17,7 +17,11 @@ fn_display_usage () {
 
 # create backup cli command
 fn_create_backup_cmd () {
-    cmd="rsync_tmbackup.sh  \"'${FLAGS}'\" '${SOURCE}' '${TARGET}'"
+    if [ "${FLAGS}" = "" ]; then
+        cmd="rsync_tmbackup.sh '${SOURCE}' '${TARGET}'"
+    else
+        cmd="rsync_tmbackup.sh --rsync-set-flags '${FLAGS}' ${SOURCE}' '${TARGET}'"
+    fi
 
     exclude_file_check=${EXCLUDE_FILE:-}
 

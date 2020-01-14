@@ -11,6 +11,7 @@ Consider this example __profile__ (named `user1-documents.inc`):
     SOURCE="${HOME}/Documents"
     TARGET="/mnt/backup-disk/Documents"
     EXCLUDE_FILE="/home/user1/opt/backup-documents-excludes.lst"
+    FLAGS="-D --numeric-ids --links --hard-links --one-file-system --itemize-changes --times --recursive --perms --owner --no-group --stats --human-readable"
 
 Now it's as easy as this to __backup__ our data:
 
@@ -50,6 +51,8 @@ And here is how to __restore__ from the `latest` backup:
     EXCLUDE_FILE="${HOME}/backup-documents-excludes.lst"
     # optional: wipe the source folder before restoring files? (true/false; default: false)
     WIPE_SOURCE_ON_RESTORE=true
+    # optional: rsync flags if overriding default
+    FLAGS="-D --numeric-ids --links --hard-links --one-file-system --itemize-changes --times --recursive --perms --owner --no-group --stats --human-readable"
 
 ### Exclude file
 
